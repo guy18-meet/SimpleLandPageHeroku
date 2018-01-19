@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <scriptsrc="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <scriptsrc="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" href="../static/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <ul class="navbar" >
+        <li><a class="navpage"  href="#home">Home</a></li>
+        <li><a class="navpage" href="#news">Jobs</a></li>
+        <li><a class="navpage" href="#news">Businesses</a></li>
+        <li><a  class="navpage" href="#contact">Contact</a></li>
+        <li><a  class="navpage" href="#about">About</a></li>
+    </ul>
+        <form class ="search" action="{{url_for('prereg')}}" method="POST">
+            <h1>Select your age: </h1>
+            <input type="radio" name="age" value=16 >16-17
+            <input type="radio" name="age" value=18 >18-19
+            <input type="radio" name="age" value=20 >20-23
+            <input type="radio" name="age" value=24 >24+
+            <br>
+            <h1>Select Location: </h1>
+            <input type="checkbox" name="location" value=Tivon >Kiryat Tivon
+            <input type="checkbox" name="location" value=Haifa >Haifa
+            <br>
+            <button class="btn btn-lg searchbtn" type="submit">SEARCH</button>
+        </form>
+</body>
+
+</html>

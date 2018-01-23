@@ -16,15 +16,15 @@
 
 <body>
     <ul class="navbar" >
-        <li><a class="navpage"  href="#home">Home</a></li>
-        <li><a class="navpage" href="#news">Jobs</a></li>
-        <li><a class="navpage" href="#news">Businesses</a></li>
+        <li><a class="navpage"  href="{{url_for('index')}}">Home</a></li>
+        <li><a class="navpage" href="{{url_for('jobs')}}">Jobs</a></li>
+        <li><a class="navpage" href="{{url_for('businesses')}}">Businesses</a></li>
         <li><a  class="navpage" href="#contact">Contact</a></li>
         <li><a  class="navpage" href="#about">About</a></li>
     </ul>
         <form class ="search" action="{{url_for('prereg')}}" method="POST">
             <h1>Select your age: </h1>
-            <input type="radio" name="age" value=16 >16-17
+            <input type="radio" name="age" value=17 >16-17
             <input type="radio" name="age" value=18 >18-19
             <input type="radio" name="age" value=20 >20-23
             <input type="radio" name="age" value=24 >24+

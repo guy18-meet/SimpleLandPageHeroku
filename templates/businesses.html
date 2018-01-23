@@ -16,24 +16,24 @@
 
 <body>
     <ul class="navbar" >
-        <li><a class="navpage"  href="#home">Home</a></li>
-        <li><a class="navpage" href="#news">Jobs</a></li>
-        <li><a class="navpage" href="#news">Businesses</a></li>
+        <li><a class="navpage"  href="{{url_for('index')}}">Home</a></li>
+        <li><a class="navpage" href="{{url_for('jobs')}}">Jobs</a></li>
+        <li><a class="navpage" href="{{url_for('businesses')}}">Businesses</a></li>
         <li><a  class="navpage" href="#contact">Contact</a></li>
         <li><a  class="navpage" href="#about">About</a></li>
     </ul>
         <form class ="post" action="{{url_for('prereg')}}" method="POST">
             <div class="form-group">
                 <label for="business">Business Name</label>
-                <input type="text" class="form-control" id="business" placeholder="Business">
+                <input type="text" class="form-control" id="business" name="bname" placeholder="Business">
             </div>
             <div class="form-group">
                 <label for="job">Job Title</label>
-                <input type="text" class="form-control" id="job" placeholder="Title">
+                <input type="text" class="form-control" id="job" name="title" placeholder="Title">
             </div>
             <div class="form-group">
                 <label for="job">Description</label>
-                <textarea class="form-control" id="desc" placeholder="Description">
+                <textarea class="form-control" id="desc" name="desc" placeholder="Description">
                 </textarea>
             </div>
             <div class="form-group">
@@ -48,8 +48,8 @@
             <div class="form-group">
                 <label id=location>Location: </label>
                 <div id="location">
-                <input type="checkbox" name="location" value=Tivon >Kiryat Tivon
-                <input type="checkbox" name="location" value=Haifa >Haifa
+                <input type="checkbox" name="loc" value=Tivon >Kiryat Tivon
+                <input type="checkbox" name="loc" value=Haifa >Haifa
                 </div>
             </div>
             <button class="btn btn-lg postbtn" type="submit">POST</button>

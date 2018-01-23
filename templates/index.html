@@ -16,9 +16,9 @@
 
 <body>
             <ul class="navbar" >
-                <li><a class="navpage"  href="#home">Home</a></li>
-                <li><a class="navpage" href="#news">Jobs</a></li>
-                <li><a class="navpage" href="#news">Businesses</a></li>
+                <li><a class="navpage"  href="{{url_for('index')}}">Home</a></li>
+                <li><a class="navpage" href="{{url_for('jobs')}}">Jobs</a></li>
+                <li><a class="navpage" href="{{url_for('businesses')}}">Businesses</a></li>
                 <li><a  class="navpage" href="#contact">Contact</a></li>
                 <li><a  class="navpage" href="#about">About</a></li>
             </ul>
@@ -28,8 +28,8 @@
             <h1 class="bold big" > Job Search! </h1>
         </div>
         <br>
-            <button type="button" class="btn btn-lg" href="{{url_for('jobs')}}">I want to work!</button>
-            <button type="button" class="btn btn-lg" href="#">I want employees!</button>
+            <a role="button" class="btn btn-lg" href="{{url_for('jobs')}}">I want to work!</a>
+            <a role="button" class="btn btn-lg" href="{{url_for('businesses')}}">I want employees!</a>
     </div>
 </body>
 

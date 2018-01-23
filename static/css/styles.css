@@ -52,6 +52,7 @@ html,body {
     padding: 0;
     overflow: hidden;
     background-color: #EF551F;
+    min-width: 500px;
 }
 
 .navpage {
@@ -82,6 +83,7 @@ html,body {
   margin-right: auto;
   margin-bottom: auto;
   margin-top: auto;
+  min-width: 400px;
 }
 .title{
   text-align: left;

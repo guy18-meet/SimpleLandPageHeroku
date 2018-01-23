@@ -9,16 +9,21 @@ heroku = Heroku(app)
 db = SQLAlchemy(app)
 
 # Create our database model
-class User(db.Model):
-    __tablename__ = "users"
+class Job(db.Model):
+    __tablename__ = "jobs"
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True)
+    bname = db.Column(db.String(120))
+    title = db.Column(db.String(120))
+    desc = db.Column(db.String(1000))
+    age = db.Column(db.Integer)
+    loc = db.Column(db.String(20))
 
-    def __init__(self, email):
-        self.email = email
+    def __init__(self, bname, title, desc, age, loc):
+        self.bname = bname
 
     def __repr__(self):
-        return '<E-mail %r>' % self.email
+        return '<E-mail %r>' % self.bname
+
 
 # Set "homepage" to index.html
 @app.route('/')
@@ -29,17 +34,25 @@ def index():
 def jobs():
     return render_template('jobs.html')
 
+@app.route('/businesses')
+def businesses():
+    return render_template('businesses.html')
+
 
 # Save e-mail to database and send to success page
-@app.route('/prereg', methods=['POST'])
+@app.route('/jobpost', methods=['POST'])
 def prereg():
     email = None
     if request.method == 'POST':
-        email = request.form['email']
-        reg = User(email)
-        db.session.add(reg)
+        bname = request.form['bname']
+        title = request.form['title']
+        desc = request.form['desc']
+        age = request.form['age']
+        loc = request.form['loc']
+        job = Job(bname=bname,title=title,desc=desc,age=age,loc=loc,)
+        db.session.add(job)
         db.session.commit()
-        return render_template('success.html')
+        return render_template('businesses.html')
     
 
 if __name__ == '__main__':

@@ -70,6 +70,7 @@ html,body {
 .navpage:hover {
     background-color: #DB381B;
     text-decoration: none;
+    color: #D5D8C8;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -110,8 +111,19 @@ color: #D5D8C8;
 
 .btn-lg:hover{
   background-color: #DB381B;
+  color: #D5D8C8;
 }
 
 .searchbtn {
   margin-top: 30px;
+}
+
+.posts{
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-right: 30px;
+}
+
+.thumbnail {
+  background-color: #D5D8C8;
 }

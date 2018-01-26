@@ -4,27 +4,30 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.heroku import Heroku
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/pre-registration'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:////tmp/test.db'
 heroku = Heroku(app)
 db = SQLAlchemy(app)
 
+
 # Create our database model
 class Job(db.Model):
-    __tablename__ = "jobs"
+    __tablename__ = "Job"
     id = db.Column(db.Integer, primary_key=True)
     bname = db.Column(db.String(120))
     title = db.Column(db.String(120))
     desc = db.Column(db.String(1000))
     age = db.Column(db.Integer)
     loc = db.Column(db.String(20))
-
+    num = db.Column(db.String(25))
+'''
     def __init__(self, bname, title, desc, age, loc):
         self.bname = bname
+        self.title
 
     def __repr__(self):
         return '<E-mail %r>' % self.bname
-
-
+'''
+#db.create_all()
 # Set "homepage" to index.html
 @app.route('/')
 def index():
@@ -32,7 +35,8 @@ def index():
 
 @app.route('/jobs')
 def jobs():
-    return render_template('jobs.html')
+    jobs=Job.query.all()
+    return render_template('jobs.html',jobs=jobs)
 
 @app.route('/businesses')
 def businesses():
@@ -49,12 +53,13 @@ def prereg():
         desc = request.form['desc']
         age = request.form['age']
         loc = request.form['loc']
-        job = Job(bname=bname,title=title,desc=desc,age=age,loc=loc,)
+        num = request.form['num']
+        job = Job(bname=bname,title=title,desc=desc,age=age,loc=loc,num=num)
         db.session.add(job)
         db.session.commit()
         return render_template('businesses.html')
     
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run()

@@ -22,9 +22,9 @@
         <li><a  class="navpage" href="#contact">Contact</a></li>
         <li><a  class="navpage" href="#about">About</a></li>
     </ul>
-        <form class ="search" action="{{url_for('prereg')}}" method="POST">
+        <form class ="search" action="{{url_for('jobs')}}" method='POST'>
             <h1>Select your age: </h1>
-            <input type="radio" name="age" value=17 >16-17
+            <input type="radio" name="age" value=16 >16-17
             <input type="radio" name="age" value=18 >18-19
             <input type="radio" name="age" value=20 >20-23
             <input type="radio" name="age" value=24 >24+
@@ -36,24 +36,15 @@
             <button class="btn btn-lg searchbtn" type="submit">SEARCH</button>
         </form>
         <div class="row  posts">
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <!-- <img src="{{ url_for('static', filename='images/Dominos-Pizza.jpg') }}" alt="..."> -->
-              <div class="caption">
-                <h3>Dominoes: Driver</h3>
-                <p>This job means you deliver hot pizza to people. You cant eat any of it on the way.</p>
-                <h4>Call to apply: 555-555-5555</h4>
-              </div>
-            </div>
-          </div>
           {%for job in jobs%}
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
               <!-- <img src="{{ url_for('static', filename='images/Dominos-Pizza.jpg') }}" alt="..."> -->
               <div class="caption">
                 <h3>{{job.bname}}: {{job.title}}</h3>
-                <p>This job means you deliver hot pizza to people. You cant eat any of it on the way.</p>
-                <h4>Call to apply: 555-555-5555</h4>
+                <p>{{job.desc}}</p>
+                <h4>Call to apply: {{job.num}}</h4>
+                <p> Located in {{job.loc}}</p>
               </div>
             </div>
           </div>

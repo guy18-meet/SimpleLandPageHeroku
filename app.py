@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
-from flask_heroku import Heroku
+#from flask_heroku import Heroku
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:////tmp/test.db'
-heroku = Heroku(app)
+#heroku = Heroku(app)
 db = SQLAlchemy(app)
 
 
@@ -19,6 +19,7 @@ class Job(db.Model):
     age = db.Column(db.Integer)
     loc = db.Column(db.String(20))
     num = db.Column(db.String(25))
+    #pic = db.Column(db.LargeBinary)
 '''
     def __init__(self, bname, title, desc, age, loc):
         self.bname = bname
@@ -33,10 +34,15 @@ class Job(db.Model):
 def index():
     return render_template('index.html')
 
-@app.route('/jobs')
+@app.route('/jobs',methods=['GET','POST'])
 def jobs():
-    jobs=Job.query.all()
-    return render_template('jobs.html',jobs=jobs)
+    if request.method == 'POST':
+        age = request.form['age']
+        loc = request.form['location']
+        jobs=Job.query.filter(Job.loc==loc,Job.age<=age)
+        return render_template('jobs.html',jobs=jobs)
+    else:
+        return render_template('jobs.html')
 
 @app.route('/businesses')
 def businesses():
@@ -54,6 +60,7 @@ def prereg():
         age = request.form['age']
         loc = request.form['loc']
         num = request.form['num']
+        #pic = request.form['pic']
         job = Job(bname=bname,title=title,desc=desc,age=age,loc=loc,num=num)
         db.session.add(job)
         db.session.commit()

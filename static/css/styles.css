@@ -9,7 +9,7 @@
 html,body {
   background-color:#17A598;
   color: #D5D8C8;
-
+  height: 100%;
 }
 
 
@@ -78,13 +78,15 @@ html,body {
 
   text-align: center;
   align-items: center;
-  align-content: center;
+  align-content: center; 
   width:100%;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto;s
   margin-bottom: auto;
   margin-top: auto;
   min-width: 400px;
+  height:50%;
+  padding-top: 100px;
 }
 .title{
   text-align: left;
@@ -122,8 +124,24 @@ color: #D5D8C8;
   padding-left: 30px;
   padding-top: 30px;
   padding-right: 30px;
+  color: #D5D8C8;
+}
+.post{
+  background-color: #EF551F;
+  color: #D5D8C8;
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.caption{
+    color: #D5D8C8;
+    padding-left: 8px;
 }
 
-.thumbnail {
-  background-color: #D5D8C8;
+}
+.loc{
+ /* color: #EF551F; */
 }

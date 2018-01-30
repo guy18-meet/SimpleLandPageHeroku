@@ -38,13 +38,14 @@
         <div class="row  posts">
           {%for job in jobs%}
           <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <!-- <img src="{{ url_for('static', filename='images/Dominos-Pizza.jpg') }}" alt="..."> -->
+            <div class="post">
+ <!--              <img src="{{ url_for('static', filename='images/Dominos-Pizza.jpg') }}" alt="..."> -->
+                
               <div class="caption">
                 <h3>{{job.bname}}: {{job.title}}</h3>
                 <p>{{job.desc}}</p>
-                <h4>Call to apply: {{job.num}}</h4>
-                <p> Located in {{job.loc}}</p>
+                <p class="loc"> Located in {{job.loc}}</p>
+                <h4>Call to apply: {{job.num}}</h4>      
               </div>
             </div>
           </div>

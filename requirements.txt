@@ -12,3 +12,4 @@ psycopg2==2.7.3.2
 SQLAlchemy==1.1.15
 visitor==0.1.3
 Werkzeug==0.13
+psycopg2==2.7.3.2

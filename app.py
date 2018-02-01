@@ -28,7 +28,8 @@ class Job(db.Model):
     def __repr__(self):
         return '<E-mail %r>' % self.bname
 '''
-#db.create_all()
+db.drop_all()
+db.create_all()
 # Set "homepage" to index.html
 @app.route('/')
 def index():
